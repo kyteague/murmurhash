@@ -125,9 +125,9 @@ static PyMethodDef ext_methods[] = {
     {"hash2_neutral", murmur_hash2_neutral, METH_VARARGS, "Returns a 32-bit MurmurHash2 that is endian and alignment neutral"},
     {"hash2_aligned", murmur_hash2_aligned, METH_VARARGS, "Returns a 32-bit MurmurHash2 using aligned reads"},
     {"hash3", murmur_hash3_x86_32, METH_VARARGS, "Returns a 32-bit MurmurHash3"},
-	{"hash3_x86_128", murmur_hash3_x86_128, METH_VARARGS, "Returns a 128-bit MurmurHash3 optimized for x86 systems"},
-	{"hash3_x64_128", murmur_hash3_x86_128, METH_VARARGS, "Returns a 128-bit MurmurHash3 optimized for x64 systems"},
-	{NULL, NULL, 0, NULL}
+    {"hash3_x86_128", murmur_hash3_x86_128, METH_VARARGS, "Returns a 128-bit MurmurHash3 optimized for x86 systems"},
+    {"hash3_x64_128", murmur_hash3_x64_128, METH_VARARGS, "Returns a 128-bit MurmurHash3 optimized for x64 systems"},
+    {NULL, NULL, 0, NULL}
 };
 
 PyMODINIT_FUNC initmurmur()

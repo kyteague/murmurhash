@@ -11,7 +11,7 @@ setup(
     license='MIT',
     author='Kyle Teague',
     author_email='kyteague@gmail.com',
-    description='Murmur1, Murmur2, and Murmur3 hash functions.',
+    description='MurmurHash1, MurmurHash2, and MurmurHash3 hash functions.',
 	ext_modules = [
 		Extension('murmurhash', [
             'ext/murmur.cpp',
