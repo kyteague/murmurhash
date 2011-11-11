@@ -8,26 +8,26 @@ typedef uint64_t (*hash64_t)(const void * key, int len, uint64_t seed);
 
 static inline PyObject * murmur_hash_32(PyObject *self, PyObject *args, hash32_t hash)
 {
-	const char *key;
-	int len;
-	uint32_t seed = 0;
+    const char *key;
+    int len;
+    uint32_t seed = 0;
 
-	if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
-		return NULL;
+    if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
+        return NULL;
 
-	return Py_BuildValue("I", hash(key, len, seed));
+    return Py_BuildValue("I", hash(key, len, seed));
 }
 
 static inline PyObject * murmur_hash_64(PyObject *self, PyObject *args, hash64_t hash)
 {
-	const char *key;
-	int len;
-	uint64_t seed = 0;
+    const char *key;
+    int len;
+    uint64_t seed = 0;
 
-	if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
-		return NULL;
+    if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
+        return NULL;
 
-	return Py_BuildValue("k", hash(key, len, seed));
+    return Py_BuildValue("k", hash(key, len, seed));
 }
 
 static PyObject * murmur_hash1(PyObject *self, PyObject *args)
@@ -72,47 +72,47 @@ static PyObject * murmur_hash2_aligned(PyObject *self, PyObject *args)
 
 static PyObject * murmur_hash3_x86_32(PyObject *self, PyObject *args)
 {
-	const char *key;
-	int len;
-	unsigned int seed = 0;
+    const char *key;
+    int len;
+    unsigned int seed = 0;
     uint32_t val;
 
-	if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
-		return NULL;
+    if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
+        return NULL;
 
     MurmurHash3_x86_32(key, len, seed, &val);
 
-	return Py_BuildValue("I", val);
+    return Py_BuildValue("I", val);
 }
 
 static PyObject * murmur_hash3_x86_128(PyObject *self, PyObject *args)
 {
-	const char *key;
-	int len;
-	unsigned int seed = 0;
+    const char *key;
+    int len;
+    unsigned int seed = 0;
     char val[4 * 4];
 
-	if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
-		return NULL;
+    if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
+        return NULL;
 
     MurmurHash3_x86_128(key, len, seed, &val);
 
-	return Py_BuildValue("s#", val, sizeof(val));
+    return Py_BuildValue("s#", val, sizeof(val));
 }
 
 static PyObject * murmur_hash3_x64_128(PyObject *self, PyObject *args)
 {
-	const char *key;
-	int len;
-	unsigned int seed = 0;
+    const char *key;
+    int len;
+    unsigned int seed = 0;
     char val[4 * 4];
 
-	if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
-		return NULL;
+    if (!PyArg_ParseTuple(args, "t#|I", &key, &len, &seed))
+        return NULL;
 
     MurmurHash3_x86_128(key, len, seed, &val);
 
-	return Py_BuildValue("s#", val, sizeof(val));
+    return Py_BuildValue("s#", val, sizeof(val));
 }
 
 static PyMethodDef ext_methods[] = {
@@ -130,7 +130,7 @@ static PyMethodDef ext_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-PyMODINIT_FUNC initmurmur()
+PyMODINIT_FUNC initmurmurhash()
 {
     Py_InitModule("murmurhash", ext_methods);
 }
